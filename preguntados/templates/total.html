@@ -1,0 +1,62 @@
+<style>
+    .total-usuarios{
+    background-color: #668c92;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .admin{
+    background-color: #2c98a8;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .participante{
+    background-color: #9dccd3;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+
+
+</style>
+<div class="row">
+    <div class="col">
+        <div class="card  text-white  total-usuarios" id="total-usuarios">
+            <div class="card-header ">
+                <h5 text-align="center">Total de usuarios:</h5>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{usuarios_totales}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card  text-white  admin" id="admin">
+            <div class="card-header ">
+                <h5 text-align="center">administradores:</h5>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{admin}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card  text-white  participante" id="participante">
+            <div class="card-header ">
+                <h5 text-align="center">Participantes:</h5>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{participante}}</h3>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/pie.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/juego.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css//templatemo-art-factory.css' %}">
+    <title>Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+	{% include 'menu.html' %}
+	<br><br><br>
+<div class="wrapper">
+	{% if pregunta is None %}
+	<br><br><br>
+	<div class="col-md-6 offset-md-3">
+		<div class="card card-body">
+			<div class="container">
+					<div class="jumbotron my-4">
+						<h3>Ya ha respondido todas las preguntas de nuestro juego</h3>
+						<h3>su puntuacion final ha sido de {{usuario.puntaje_total}} puntos</h3>
+						<br><br><br>
+						<h5>Si desea compartir su resultado, lo puede hacer aca:</h5>
+						{% include 'compartir.html' %}
+						<br>
+						<h3><p>Si quiere saber en que posicion ha quedado, puede puede hacer click desde este link:</p></h3>
+						<a class="btn btn-primary"  href="{% url 'tablero' %}"> ver clasificaciones </a>
+						<h3><p>Si desea volver a jugar, puede puede hacer click desde este link:</p></h3>
+						<td><a class="btn btn-success" href="{% url 'volver_jugar' %}">Volver a jugar</a></td>
+
+					</div>
+			</div>
+		</div>
+	</div>
+
+{% else %}
+
+
+<div class="container">
+	
+	<div class="jumbotron my-4">
+		
+		<h3>
+			pregunta :{{pregunta.texto}}
+		</h3>
+		<hr>
+		<h5>Dificultad:{{pregunta.dificultad}} , Tipo de pregunta: {{pregunta.categoria}}</h5>
+		<br>
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="card card-body">
+					<a class="btn btn-dark btn-sm-btn-block" href="#">Selecciona una pregunta</a>
+					<form method="POST" class="form">
+						{% csrf_token %}
+						<input type="hidden" name="pregunta_pk" value="{{pregunta.pk}}">
+						<br>
+						{% for opciones in pregunta.opciones.all %}
+							<div class="form-check mx-4">
+							
+							<input class="form-check-input" type="radio" name="respuesta_pk" value="{{opciones.pk}}" id="choice-{{forloop.counter}}">
+							<label class="form-check-label" for="choice-{{forloop.counter}}">
+								{{opciones.texto}}
+							</label>
+							</div>
+						{% endfor %}
+						<br>
+						<button type="submit" class="btn btn-success">Enviar</button>
+						<br>
+					</form>
+				
+           		 </div>
+        	</div>
+		<hr>
+   		</div>
+
+		
+	</div>
+
+</div>
+
+
+{% endif %}
+</div>
+<br>
+    {% include 'pie_pagina.html' %}
+
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery-2.1.0.min' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+	
+</html>

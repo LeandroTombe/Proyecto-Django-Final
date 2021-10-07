@@ -1,0 +1,40 @@
+<header class="header-area header-sticky">
+    <div class="body" style="background-color:aqua; padding-right: 20px;" >
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="scroll-to-section"><a href="{% url 'tablero' %}">Clasificaciones</a></li>
+                        {% if request.user.is_staff %}
+                        <li class="scroll-to-section"><a href="{% url 'estadisticas' %}">Gestion_Usuarios</a></li>
+                        
+                        <li class="submenu">
+                            <a href="javascript:;">Preguntas</a>
+                            <ul>
+                                <li><a href="{% url 'crear_preguntas' %}">Crear_Preguntas</a></li>
+                                <li><a href="{% url 'crear_respuesta' %}">Crear_Respuesta</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                        <li class="scroll-to-section"><a href="{% url 'register' %}">Registrarse</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'Perfil_usuario' %}"><u>Bienvenido, {{ user.username }}</u></a></li>
+                            <li><a href="{% url 'logout' %}">logout</a></li>
+                        {% else %}
+                            <li class="scroll-to-section"><a href="{% url 'login' %}">Ingresar</a></li>
+                        {% endif %}
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	                <!-- Latest compiled and minified JavaScript -->
+	                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

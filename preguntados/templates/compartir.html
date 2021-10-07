@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compartir en redes sociales</title>
+    <link rel="stylesheet"href="{% static 'css/compartir.css' %}">
+</head>
+<body>
+    <div class="contenedor">
+        <div class="row">
+                <div class="share">
+                    <a href="http://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/jugar/" target="_blank" class="facebook">Facebook</a>
+                    <a href="https://twitter.com/intent/tweet?text=mi puntuacion final:&url=http://127.0.0.1:8000/jugar/&via=proyecto_django2021&hashtags=#" target="_blank" class="twitter">Twitter</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/pie.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css//templatemo-art-factory.css' %}">
+    <title>Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+	{% include 'menu.html' %}
+	<br><br><br><br>
+	<div class="wrapper">
+    <div class="container">
+			<div class="card card-body">
+				<a class="btn btn-dark btn-sm-btn-block" href="#">Tabla de clasificaciones</a>
+	    	<h1 class="text-center my-1"> 
+		    	<span class="badge badge-info">
+
+			    	Los {{contar_user}} mejores jugadores
+			
+		    	</span>
+	    	</h1>
+
+
+	    	<table class="table table-striped table-bodered">
+		    	<thead>
+			    	<tr>
+				    	<th>Posicion</th>
+				    	<th>Usuario</th>
+				    	<th>Puntaje</th>
+			    	</tr>
+		    	</thead>
+		    	<tbody>
+			    	{% for participantes in participantes %}
+				    	<tr>
+					    	<th>{{forloop.counter}}</th>
+					    	<th>{{participantes.user}}</th>
+					    	<th>{{participantes.puntaje_total}}</th>
+				    	</tr>
+			    	{% endfor %}
+		    	</tbody>
+	    	</table>
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						{% if participantes.has_previous %}
+				  		<li class="page-item"><a class="page-link " href="?page={{participantes.previous_page_number}}">Anterior</a></li>
+						{% endif %}
+						{% if participantes.has_next %}
+				  		<li class="page-item"><a class="page-link" href="?page={{participantes.next_page_number}}">Siguiente</a></li>
+						{% endif %}
+					</ul>
+				</nav>
+			</div>
+	</div>
+	</div>
+	{% include 'pie_pagina.html' %}
+</body>
+</html>

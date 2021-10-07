@@ -1,0 +1,24 @@
+para instalar el entorno virtual en nuestro proyecto y poder ejecutar django:
+
+pip install virtualenv
+
+creamos el entorno:
+
+python -m venv nombre_entorno
+
+para acceder el entorno:
+
+tutorial-env\Scripts\activate.bat
+
+saber las listas de pip instaladas:
+
+pip list
+
+y por ultimo, creamos la pip de django para el proyecto:
+
+pip install django
+
+cambiar version de django:
+
+pip install --upgrade Django==1.6.5 --> seria la version que quieras usar
+

@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+.contenedor {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.share {
+    display: flex;
+    justify-content: center;
+}
+.share a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 0 5px 5px 5px;
+    -webkit-border-radius: 0 5px 5px 5px;
+    -moz-border-radius: 0 5px 5px 5px;
+    -ms-border-radius: 0 5px 5px 5px;
+    -o-border-radius: 0 5px 5px 5px;
+    transition: all 400ms ease;
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+}
+
+
+
+.share .facebook {
+    background: #050599;
+}
+.share .facebook:hover {
+    color: #050599;
+    background: transparent;
+    border: 1px dashed #050599;
+}
+.share .twitter {
+    background: #00a2ff;
+}
+.share .twitter:hover {
+    color: #00a2ff;
+    background: transparent;
+    border: 1px dashed #00a2ff;
+}
